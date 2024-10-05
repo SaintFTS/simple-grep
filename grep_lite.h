@@ -17,16 +17,16 @@ inline std::vector<std::filesystem::path> GetFilesInDirectory(std::filesystem::p
     for (const auto& path : std::filesystem::directory_iterator(exe_path)){
         files.push_back(path);
     }
-
     return files;
 }
+
 inline void GetStringFromFiles(std::vector<std::filesystem::path> files, const std::string& str_to_find, std::vector<std::filesystem::path>& extensions){
     std::vector<str_line> lines(SURROUNDING_COLS_AMOUNT*2+1);
     bool breakout = false;
     std::filesystem::path matching_file;
     for (int i = 0; i < files.size(); i++){
-    lines.clear();
-    lines.resize(SURROUNDING_COLS_AMOUNT*2+1); 
+        lines.clear();
+        lines.resize(SURROUNDING_COLS_AMOUNT*2+1); 
 
         std::ifstream file(files[i]);
         if (file.is_open()){
